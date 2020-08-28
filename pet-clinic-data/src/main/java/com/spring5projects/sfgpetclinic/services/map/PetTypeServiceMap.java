@@ -1,8 +1,6 @@
 package com.spring5projects.sfgpetclinic.services.map;
 
-import com.spring5projects.sfgpetclinic.model.Pet;
 import com.spring5projects.sfgpetclinic.model.PetType;
-import com.spring5projects.sfgpetclinic.services.PetService;
 import com.spring5projects.sfgpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
