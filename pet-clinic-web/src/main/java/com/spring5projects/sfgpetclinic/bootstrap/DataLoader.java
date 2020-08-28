@@ -1,6 +1,7 @@
 package com.spring5projects.sfgpetclinic.bootstrap;
 
 import com.spring5projects.sfgpetclinic.model.Owner;
+import com.spring5projects.sfgpetclinic.model.Pet;
 import com.spring5projects.sfgpetclinic.model.PetType;
 import com.spring5projects.sfgpetclinic.model.Vet;
 import com.spring5projects.sfgpetclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import com.spring5projects.sfgpetclinic.services.PetTypeService;
 import com.spring5projects.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -28,21 +31,41 @@ public class DataLoader implements CommandLineRunner {
 
         PetType dog = new PetType();
         dog.setName("Dog");
-        petTypeService.save(dog);
+        PetType dogSavedPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
         cat.setName("Cat");
-        petTypeService.save(cat);
+        PetType catSavedPetType = petTypeService.save(cat);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
+        owner1.setAddress("123 Brickell");
+        owner1.setCity("Miami");
+        owner1.setTelephone("123456789");
+
+        Pet mikesPet = new Pet();
+        mikesPet.setPetType(dogSavedPetType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBirthDate(LocalDate.now());
+        mikesPet.setName("Rosco");
+        owner1.getPets().add(mikesPet);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenane");
+        owner2.setAddress("123 Brickell");
+        owner2.setCity("Miami");
+        owner2.setTelephone("123456789");
+
+        Pet fionasPet = new Pet();
+        fionasPet.setPetType(catSavedPetType);
+        fionasPet.setOwner(owner2);
+        fionasPet.setBirthDate(LocalDate.now());
+        fionasPet.setName("Justice");
+        owner2.getPets().add(fionasPet);
 
         ownerService.save(owner2);
 
