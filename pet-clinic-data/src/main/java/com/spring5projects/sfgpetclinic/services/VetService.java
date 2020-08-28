@@ -4,4 +4,6 @@ import com.spring5projects.sfgpetclinic.model.Vet;
 
 public interface VetService extends CrudService<Vet, Long> {
 
+
+
 }
