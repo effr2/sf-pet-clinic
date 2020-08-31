@@ -21,8 +21,8 @@
 
     <dependencies>
         <dependency>
-            <artifactId>pet-clinic-data</artifactId>
             <groupId>com.spring5projects</groupId>
+            <artifactId>pet-clinic-data</artifactId>
             <version>0.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
