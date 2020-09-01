@@ -36,6 +36,7 @@ public class OwnerController {
         return "owners/findOwners";
     }
 
+
     @GetMapping
     public String processFindForm(Owner owner, BindingResult result, Model model){
         // allow parameterless GET request for /owners to return all records
@@ -59,11 +60,6 @@ public class OwnerController {
             model.addAttribute("selections", results);
             return "owners/ownersList";
         }
-    }
-
-    @RequestMapping("/find")
-    public String findOwners() {
-        return "notimplemented";
     }
 
     @GetMapping("/{ownerId}")
