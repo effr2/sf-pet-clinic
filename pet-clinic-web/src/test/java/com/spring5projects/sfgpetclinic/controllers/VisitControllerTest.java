@@ -59,7 +59,7 @@ class VisitControllerTest {
                         Pet.builder()
                                 .id(petId)
                                 .birthDate(LocalDate.of(2018,11,13))
-                                .name("Cutie")
+                                .name("Bobo")
                                 .visits(new HashSet<>())
                                 .owner(Owner.builder()
                                         .id(ownerId)
@@ -96,7 +96,8 @@ class VisitControllerTest {
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("date","2018-11-11")
                 .param("description", YET_ANOTHER_VISIT_DESCRIPTION))
-                .andExpect(status().isOk())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name(REDIRECT_OWNERS_1))
                 .andExpect(model().attributeExists("visit"))
         ;
     }
